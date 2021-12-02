@@ -59,10 +59,10 @@
   #define TEMP_0_PIN                    P0_24_A1  // A1 (T1) - (68) - TEMP_0_PIN
 #endif
 #ifndef TEMP_1_PIN
-  #define TEMP_1_PIN                    P0_25_A2  // A2 (T2) - (69) - TEMP_1_PIN
+  #define TEMP_1_PIN                    P0_23_A0  // P0_25_A2  // A2 (T2) - (69) - TEMP_1_PIN
 #endif
 #ifndef TEMP_BED_PIN
-  #define TEMP_BED_PIN                  P0_23_A0  // A0 (T0) - (67) - TEMP_BED_PIN
+  #define TEMP_BED_PIN                P0_25_A2 // P0_23_A0  // A0 (T0) - (67) - TEMP_BED_PIN
 #endif
 
 #if HOTENDS == 1 && !REDUNDANT_TEMP_MATCH(SOURCE, E1)
@@ -102,7 +102,7 @@
   #endif
 #endif
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_03
+  #define FAN_PIN                          P1_24
 #endif
 #ifndef HEATER_BED_PIN
   #define HEATER_BED_PIN                   P2_05
