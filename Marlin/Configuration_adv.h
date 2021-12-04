@@ -3328,7 +3328,7 @@
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
   #define SPINDLE_LASER_ENA_PIN         P1_28 // using endstop X-max as spindle enable
-  #define SPINDLE_LASER_PWM_PIN         P1_24 // using endstop Z-max as spindle pwm control
+  #define SPINDLE_LASER_PWM_PIN         P1_27 // using endstop Z-max as spindle pwm control
 
   #define SPINDLE_LASER_USE_PWM                // Enable if your controller supports setting the speed/power
   #if ENABLED(SPINDLE_LASER_USE_PWM)
