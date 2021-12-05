@@ -338,7 +338,7 @@ void menu_main() {
   #endif
 
   SUBMENU(MSG_CONFIGURATION, menu_configuration);
-  #if ENABLED(ADVANCED_PAUSE_FEATURE)
+/*  #if ENABLED(ADVANCED_PAUSE_FEATURE)
     #if E_STEPPERS == 1 && DISABLED(FILAMENT_LOAD_UNLOAD_GCODES)
       YESNO_ITEM(MSG_FILAMENTCHANGE,
         menu_change_filament, ui.goto_previous_screen,
@@ -348,6 +348,7 @@ void menu_main() {
       SUBMENU(MSG_FILAMENTCHANGE, menu_change_filament);
     #endif
   #endif
+  */
 
   #if ENABLED(LCD_INFO_MENU)
     SUBMENU(MSG_INFO_MENU, menu_info);
