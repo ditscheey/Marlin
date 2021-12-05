@@ -81,7 +81,7 @@ void menu_configuration();
 #endif
 
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
-  void menu_change_filament();
+ // void menu_change_filament();
 #endif
 
 #if ENABLED(LCD_INFO_MENU)
@@ -96,9 +96,9 @@ void menu_configuration();
   void menu_spindle_laser();
 #endif
 
-#if ENABLED(PREHEAT_SHORTCUT_MENU_ITEM)
-  void menu_preheat_only();
-#endif
+//#if ENABLED(PREHEAT_SHORTCUT_MENU_ITEM)
+//  void menu_preheat_only();
+//#endif
 
 #if HAS_MULTI_LANGUAGE
   void menu_language();
@@ -318,11 +318,11 @@ void menu_main() {
     #if ENABLED(HOST_START_MENU_ITEM) && defined(ACTION_ON_START)
       ACTION_ITEM(MSG_HOST_START_PRINT, host_action_start);
     #endif
-
+/*
     #if ENABLED(PREHEAT_SHORTCUT_MENU_ITEM)
       SUBMENU(MSG_PREHEAT_CUSTOM, menu_preheat_only);
     #endif
-
+*/
     SUBMENU(MSG_MOTION, menu_motion);
   }
   #if HAS_POWER_MONITOR

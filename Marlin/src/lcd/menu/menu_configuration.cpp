@@ -309,7 +309,7 @@ void menu_advanced_settings();
   }
 
 #endif
-
+/*
 #if PREHEAT_COUNT && DISABLED(SLIM_LCD_MENUS)
 
   void _menu_configuration_preheat_settings() {
@@ -338,7 +338,7 @@ void menu_advanced_settings();
   }
 
 #endif
-
+*/
 #if ENABLED(CUSTOM_MENU_CONFIG)
 
   void _lcd_custom_menus_configuration_gcode(PGM_P const cmd) {
@@ -547,10 +547,11 @@ void menu_configuration() {
   #endif
 
   // Preheat configurations
-  #if PREHEAT_COUNT && DISABLED(SLIM_LCD_MENUS)
+/*  #if PREHEAT_COUNT && DISABLED(SLIM_LCD_MENUS)
     LOOP_L_N(m, PREHEAT_COUNT)
       SUBMENU_N_S(m, ui.get_preheat_label(m), MSG_PREHEAT_M_SETTINGS, _menu_configuration_preheat_settings);
   #endif
+  */
 
   #if ENABLED(SOUND_MENU_ITEM)
     EDIT_ITEM(bool, MSG_SOUND, &ui.buzzer_enabled, []{ ui.chirp(); });
