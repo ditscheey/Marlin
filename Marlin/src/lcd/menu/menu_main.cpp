@@ -266,6 +266,21 @@ void menu_main() {
 
   #endif
 
+  #if HAS_CUTTER
+    SUBMENU(MSG_CUTTER(MENU), STICKY_SCREEN(menu_spindle_laser));
+  #endif
+  
+  #if ENABLED(CUSTOM_MENU_MAIN)
+    if (TERN1(CUSTOM_MENU_MAIN_ONLY_IDLE, !busy)) {
+      #ifdef CUSTOM_MENU_MAIN_TITLE
+        SUBMENU_P(PSTR(CUSTOM_MENU_MAIN_TITLE), custom_menus_main);
+      #else
+        SUBMENU(MSG_CUSTOM_COMMANDS, custom_menus_main);
+      #endif
+    }
+  #endif
+
+
   if (busy) {
     #if MACHINE_CAN_PAUSE
       ACTION_ITEM(MSG_PAUSE_PRINT, ui.pause_print);
@@ -310,15 +325,6 @@ void menu_main() {
 
     SUBMENU(MSG_MOTION, menu_motion);
   }
-
-  #if HAS_CUTTER
-    SUBMENU(MSG_CUTTER(MENU), STICKY_SCREEN(menu_spindle_laser));
-  #endif
-
-  #if HAS_TEMPERATURE
-    SUBMENU(MSG_TEMPERATURE, menu_temperature);
-  #endif
-
   #if HAS_POWER_MONITOR
     SUBMENU(MSG_POWER_MONITOR, menu_power_monitor);
   #endif
@@ -332,17 +338,6 @@ void menu_main() {
   #endif
 
   SUBMENU(MSG_CONFIGURATION, menu_configuration);
-
-  #if ENABLED(CUSTOM_MENU_MAIN)
-    if (TERN1(CUSTOM_MENU_MAIN_ONLY_IDLE, !busy)) {
-      #ifdef CUSTOM_MENU_MAIN_TITLE
-        SUBMENU_P(PSTR(CUSTOM_MENU_MAIN_TITLE), custom_menus_main);
-      #else
-        SUBMENU(MSG_CUSTOM_COMMANDS, custom_menus_main);
-      #endif
-    }
-  #endif
-
   #if ENABLED(ADVANCED_PAUSE_FEATURE)
     #if E_STEPPERS == 1 && DISABLED(FILAMENT_LOAD_UNLOAD_GCODES)
       YESNO_ITEM(MSG_FILAMENTCHANGE,
