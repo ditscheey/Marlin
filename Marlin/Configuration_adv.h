@@ -3328,7 +3328,7 @@
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
   #define SPINDLE_LASER_ENA_PIN         P1_28       // 
-  #define SPINDLE_LASER_PWM_PIN         P1_27       // 
+  #define SPINDLE_LASER_PWM_PIN         P1_24       // 
 
   #define SPINDLE_LASER_USE_PWM                // Enable if your controller supports setting the speed/power
   #if ENABLED(SPINDLE_LASER_USE_PWM)
@@ -3339,7 +3339,7 @@
   #define AIR_EVACUATION                     // Cutter Vacuum / Laser Blower motor control with G-codes M10-M11
   #if ENABLED(AIR_EVACUATION)
     #define AIR_EVACUATION_ACTIVE       LOW    // Set to "HIGH" if the on/off function is active HIGH
-   #define AIR_EVACUATION_PIN           P1_24     // Override the default Cutter Vacuum or Laser Blower pin
+   #define AIR_EVACUATION_PIN           P1_26     // Override the default Cutter Vacuum or Laser Blower pin
   #endif
 
   //#define AIR_ASSIST                         // Air Assist control with G-codes M8-M9
@@ -3391,19 +3391,19 @@
      * PWMDC = (spdpwr - SPEED_POWER_MIN) / (SPEED_POWER_MAX - SPEED_POWER_MIN) / SPEED_POWER_SLOPE
      */
     #if ENABLED(SPINDLE_LASER_USE_PWM)
-      #define SPEED_POWER_INTERCEPT       0    // (%) 0-100 i.e., Minimum power percentage
-      #define SPEED_POWER_MIN          5000    // (RPM)
-      #define SPEED_POWER_MAX         30000    // (RPM) SuperPID router controller 0 - 30,000 RPM
-      #define SPEED_POWER_STARTUP     25000    // (RPM) M3/M4 speed/power default (with no arguments)
+      #define SPEED_POWER_INTERCEPT      25     // (%) 0-100 i.e., Minimum power percentage
+      #define SPEED_POWER_MIN          6000     // (RPM)
+      #define SPEED_POWER_MAX         24000     // (RPM) SuperPID router controller 0 - 30,000 RPM
+      #define SPEED_POWER_STARTUP      6000     // (RPM) M3/M4 speed/power default (with no arguments)
     #endif
 
   #else
 
     #if ENABLED(SPINDLE_LASER_USE_PWM)
-      #define SPEED_POWER_INTERCEPT       0    // (%) 0-100 i.e., Minimum power percentage
-      #define SPEED_POWER_MIN             0    // (%) 0-100
+      #define SPEED_POWER_INTERCEPT      25    // (%) 0-100 i.e., Minimum power percentage
+      #define SPEED_POWER_MIN            25    // (%) 0-100
       #define SPEED_POWER_MAX           100    // (%) 0-100
-      #define SPEED_POWER_STARTUP        80    // (%) M3/M4 speed/power default (with no arguments)
+      #define SPEED_POWER_STARTUP        25    // (%) M3/M4 speed/power default (with no arguments)
     #endif
 
     // Define the minimum and maximum test pulse time values for a laser test fire function
@@ -3480,8 +3480,8 @@
 
     #else
 
-      #define SPINDLE_LASER_POWERUP_DELAY     50 // (ms) Delay to allow the spindle/laser to come up to speed/power
-      #define SPINDLE_LASER_POWERDOWN_DELAY   50 // (ms) Delay to allow the spindle to stop
+      #define SPINDLE_LASER_POWERUP_DELAY     100 // (ms) Delay to allow the spindle/laser to come up to speed/power
+      #define SPINDLE_LASER_POWERDOWN_DELAY   100 // (ms) Delay to allow the spindle to stop
 
     #endif
 
